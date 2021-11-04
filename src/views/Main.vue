@@ -4,18 +4,27 @@
       <topHeader/>
     </el-header>
     <el-container>
-      <el-aside width="150px">Aside</el-aside>
-      <el-main>Main</el-main>
+      <el-aside width="200px">
+        <aside-left/>
+      </el-aside>
+      <el-main>
+        <contant-main/>
+      </el-main>
     </el-container>
+    <el-footer>Footer</el-footer>
   </el-container>
 </template>
 
 <script>
 import topHeader from '@/components/topHeader'
+import asideLeft from '@/components/asideLeft'
+import contantMain from '@/components/contantMain'
 export default {
   name: 'Main',
   components: {
-    topHeader
+    topHeader,
+    asideLeft,
+    contantMain
   }
 }
 </script>
@@ -30,14 +39,12 @@ export default {
 }
 
 .el-aside {
-  background-color: #d3dce6;
+  background-color: #ededed;
   color: var(--el-text-color-primary);
-  text-align: center;
-  line-height: 200px;
 }
 
 .el-main {
-  background-color: #e9eef3;
+  background-color: #ffffff;
   color: var(--el-text-color-primary);
   text-align: center;
   line-height: 160px;
