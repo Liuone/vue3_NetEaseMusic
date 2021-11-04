@@ -1,23 +1,29 @@
 <template>
   <el-container>
-    <el-header></el-header>
+    <el-header>
+      <topHeader/>
+    </el-header>
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
+      <el-aside width="150px">Aside</el-aside>
       <el-main>Main</el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
+import topHeader from '@/components/topHeader'
 export default {
-  name: 'Main'
+  name: 'Main',
+  components: {
+    topHeader
+  }
 }
 </script>
 
-<style scss scoped>
+<style lang="scss" scoped>
 .el-header,
 .el-footer {
-  background-color: #b3c0d1;
+  background-color: #f9f9f9;
   color: var(--el-text-color-primary);
   text-align: center;
   line-height: 60px;
