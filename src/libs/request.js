@@ -19,4 +19,4 @@ export const axiosRequest = params => {
   })
 }
 // 抛出方法
-export const Requst_ = params => axiosRequest(params)
+export const Request_ = params => axiosRequest(params)
