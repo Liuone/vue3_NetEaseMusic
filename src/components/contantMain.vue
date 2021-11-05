@@ -1,35 +1,51 @@
 <template>
-<!--  轮播图-->
-  <div class="main-top-img">
-    <el-carousel :interval="4000" type="card" height="200px">
-      <el-carousel-item v-for="item in 6" :key="item">
-        <h3 class="medium">{{ item }}</h3>
+  <!--  轮播图-->
+  <div class="main-top-img" >
+    <el-carousel :interval="3000" type="card" trigger="click" indicator-position="" height="200px">
+      <el-carousel-item v-for="item in bannerData" :key="item">
+        <img class="medium" :src="item.imageUrl">
       </el-carousel-item>
     </el-carousel>
   </div>
 </template>
 
 <script>
+import { reactive, onBeforeMount } from 'vue'
+import Request_ from '@/request/index'
+
 export default {
-  name: 'contantMain'
+  name: 'contantMain',
+  setup () {
+    const bannerData = reactive([])
+    // mounted生命周期
+    onBeforeMount(() => {
+      banner()
+    })
+    // 请求轮播图
+    const banner = () => {
+      return Request_.banner({
+        type: 0 // 0:pc 1:android 2:iphone 3:ipad
+      }).then(res => {
+        console.log('轮播图获取结果返回>>>', res)
+        bannerData.push(...res)
+      })
+    }
+    // 返回
+    return {
+      bannerData,
+      banner
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 14px;
-  opacity: 0.75;
-  line-height: 200px;
+.el-carousel__item img {
+  border-radius: 10px;
+  height: 200px;
+  //opacity: 0.75;
   margin: 0;
   text-align: center;
 }
 
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
-}
 </style>

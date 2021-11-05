@@ -1,15 +1,17 @@
 <template>
   <div class="aside-top">
     <!--  头像-->
-    <el-avatar :size='medium' :src="circleUrl"></el-avatar>
+    <el-avatar :size="50" :src="circleUrl"></el-avatar>
     <!--  登录-->
     <span class="login-text" @click="goToLogin">还没有登录呦</span>
     <!--    登录框-->
-    <el-dialog v-model="dialogFormVisible" title="登录" width="30%" >
-<!--      账号-->
-     邮箱: <el-input v-model="login" placeholder="请输入邮箱" />
-<!--      密码-->
-      密码: <el-input v-model="password" placeholder="请输入密码" show-password/>
+    <el-dialog v-model="dialogFormVisible" title="登录" width="30%">
+      <!--      账号-->
+      邮箱:
+      <el-input v-model="login" placeholder="请输入邮箱"/>
+      <!--      密码-->
+      密码:
+      <el-input v-model="password" placeholder="请输入密码" show-password/>
       <template #footer>
       <span class="dialog-footer">
         <el-button @click="cancelLogin">取消</el-button>
@@ -31,11 +33,12 @@
 
 <script>
 import { ref, reactive, toRefs } from 'vue'
+import Request_ from '@/request/index'
 // 引入消息提示
 import { ElMessage } from 'element-plus'
-import Request_ from '@/request/index'
+
 export default {
-  name: 'aside',
+  name: 'asideLeft',
   setup () {
     // 定义
     // eslint-disable-next-line no-labels
@@ -55,6 +58,14 @@ export default {
         type: 'warning'
       })
       console.log('取消登录')
+    }
+    // 邮箱登录
+    const confirmLogin = () => {
+      return Request_.banner({
+        type: 0
+      }).then(res => {
+        console.log(res)
+      })
     }
     // 返回
     return {

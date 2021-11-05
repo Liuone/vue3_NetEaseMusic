@@ -47,7 +47,6 @@ export default {
   background-color: #ffffff;
   color: var(--el-text-color-primary);
   text-align: center;
-  line-height: 160px;
 }
 
 body > .el-container {

@@ -21,5 +21,11 @@ export const API = {
   /**
    * 说明: 轮询此接口可获取二维码扫码状态,800为二维码过期,801为等待扫码,802为待确认,803为授权登录成功(803状态码下会返回cookies)
    */
-  qrcheck: `${process.env.VUE_APP_BASE_API_URL}/login/qr//login/qr/check`
+  qrcheck: `${process.env.VUE_APP_BASE_API_URL}/login/qr/login/qr/check`,
+
+  // 推荐歌单
+  personalized: `${process.env.VUE_APP_BASE_API_URL}/personalized`,
+
+  // 轮播图
+  banner: `${process.env.VUE_APP_BASE_API_URL}/banner`
 }
