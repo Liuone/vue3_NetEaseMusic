@@ -27,6 +27,7 @@
       <li>视频</li>
       <li>朋友</li>
       <li>朋友</li>
+      <li>朋友</li>
     </ul>
   </div>
 </template>
