@@ -15,7 +15,7 @@
       <template #footer>
       <span class="dialog-footer">
         <el-button @click="cancelLogin">取消</el-button>
-        <el-button type="primary" @click="confirmLogin">确定</el-button>
+        <el-button type="danger" @click="confirmLogin">确定</el-button>
       </span>
       </template>
     </el-dialog>

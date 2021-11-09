@@ -1,17 +1,23 @@
 <template>
   <el-container>
+<!--    头部banner-->
     <el-header>
       <topHeader/>
     </el-header>
     <el-container>
+<!--      侧边栏区域-->
       <el-aside width="200px">
         <aside-left/>
       </el-aside>
       <el-main>
+<!--        主体区域-->
         <contant-main/>
       </el-main>
     </el-container>
-    <el-footer>Footer</el-footer>
+<!--    底部播放区域-->
+    <el-footer>
+      <footer-box/>
+    </el-footer>
   </el-container>
 </template>
 
@@ -19,12 +25,14 @@
 import topHeader from '@/components/topHeader'
 import asideLeft from '@/components/asideLeft'
 import contantMain from '@/components/contantMain'
+import footerBox from '@/components/footerBox'
 export default {
   name: 'Main',
   components: {
     topHeader,
     asideLeft,
-    contantMain
+    contantMain,
+    footerBox
   }
 }
 </script>
@@ -60,5 +68,11 @@ body > .el-container {
 
 .el-container:nth-child(7) .el-aside {
   line-height: 320px;
+}
+.el-footer {
+  //position: fixed;
+  //bottom: 0;
+  height: 60px;
+  background-color: #fefefe;
 }
 </style>
