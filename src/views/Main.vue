@@ -73,6 +73,6 @@ body > .el-container {
   //position: fixed;
   //bottom: 0;
   height: 60px;
-  background-color: #fefefe;
+  background-color: pink;
 }
 </style>
