@@ -35,6 +35,7 @@ footer, header, hgroup, main, menu, nav, section {
 body {
     /*max-width: 750px;*/
     /*line-height: 1;*/
+    cursor: default;
 }
 ol, ul {
     list-style: none;

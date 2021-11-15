@@ -25,7 +25,7 @@ import up from '@/assets/images/up.png'
 import play from '@/assets/images/play.png'
 import down from '@/assets/images/down.png'
 export default {
-  name: 'footer',
+  name: 'footer-box',
   setup () {
     return {
       play,

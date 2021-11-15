@@ -35,7 +35,6 @@
 
 <script>
 import { ref, reactive, toRefs } from 'vue'
-import Request_ from '@/request/index'
 // 引入消息提示
 import { ElMessage } from 'element-plus'
 
@@ -63,11 +62,7 @@ export default {
     }
     // 邮箱登录
     const confirmLogin = () => {
-      return Request_.banner({
-        type: 0
-      }).then(res => {
-        console.log(res)
-      })
+      console.log('登录按钮')
     }
     // 返回
     return {

@@ -69,9 +69,11 @@ body > .el-container {
 .el-container:nth-child(7) .el-aside {
   line-height: 320px;
 }
+//底部播放栏
 .el-footer {
-  //position: fixed;
-  //bottom: 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   height: 60px;
   background-color: pink;
 }
