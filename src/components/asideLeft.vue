@@ -37,12 +37,11 @@
 import { ref, reactive, toRefs } from 'vue'
 // 引入消息提示
 import { ElMessage } from 'element-plus'
-
 export default {
   name: 'asideLeft',
   setup () {
     // 定义
-    // eslint-disable-next-line no-labels
+
     const state = reactive({
       circleUrl: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png', // 头像地址
       dialogFormVisible: false // 登录框 默认关闭 点击的时候显示

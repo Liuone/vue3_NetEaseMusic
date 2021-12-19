@@ -1,5 +1,4 @@
 <template>
-  <div v-if="clickRecommend">
     <!--  轮播图-->
     <div class="main-top-img">
       <el-carousel :interval="3000" type="card" trigger="click" indicator-position="" height="200px">
@@ -7,15 +6,14 @@
           <img class="medium" :src="item.imageUrl">
         </el-carousel-item>
       </el-carousel>
-    </div>
     <!--    推荐歌单模块-->
     <div class="recommend" @click="clickRecommendStatus">
       <h3 >推荐歌单</h3>
     </div>
   </div>
 <!--  推荐歌单-->
-  <div v-else>
-    <recommend-music @handle="handle"/>
+  <div>
+    <recommend-music/>
   </div>
 </template>
 

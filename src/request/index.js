@@ -7,5 +7,11 @@ export default {
     return Request_({
       url: API.banner
     })
+  },
+  // 邮箱登录
+  emaillogin () {
+    return Request_({
+      url: API.emaillogin
+    })
   }
 }

@@ -11,7 +11,7 @@
       </el-aside>
       <el-main>
 <!--        主体区域-->
-        <contant-main/>
+      <router-view name="Recommendation"></router-view>
       </el-main>
     </el-container>
 <!--    底部播放区域-->
@@ -24,14 +24,12 @@
 <script>
 import topHeader from '@/components/topHeader'
 import asideLeft from '@/components/asideLeft'
-import contantMain from '@/components/contantMain'
 import footerBox from '@/components/footerBox'
 export default {
   name: 'Main',
   components: {
     topHeader,
     asideLeft,
-    contantMain,
     footerBox
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="left"></div>
   <div class="contant-text">
-    <span>个性推荐</span>
+    <span @click="recommendationClick">个性推荐</span>
     <span>歌单</span>
     <span>主播电台</span>
     <span>排行榜</span>
@@ -12,8 +12,20 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router'
 export default {
-  name: 'topHeader'
+  name: 'topHeader',
+  setup () {
+    const router = useRouter()
+    const recommendationClick = () => {
+      router.push({
+        path: '/recommendation'
+      })
+    }
+    return {
+      recommendationClick
+    }
+  }
 }
 </script>
 
