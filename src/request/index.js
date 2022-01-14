@@ -9,9 +9,10 @@ export default {
     })
   },
   // 邮箱登录
-  emaillogin () {
+  emailLogin (data) {
     return Request_({
-      url: API.emaillogin
+      url: API.emailLogin,
+      data
     })
   }
 }

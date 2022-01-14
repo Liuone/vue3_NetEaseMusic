@@ -1,10 +1,10 @@
 export const API = {
   // 登录接口(有3个)
   // 1. 手机登录
-  phonelogin: `${process.env.VUE_APP_BASE_API_URL}/login/cellphone`,
+  phoneLogin: `${process.env.VUE_APP_BASE_API_URL}/login/cellphone`,
 
   // 2. 邮箱登录
-  emaillogin: `${process.env.VUE_APP_BASE_API_URL}/login`,
+  emailLogin: `${process.env.VUE_APP_BASE_API_URL}/login`,
 
   // 3.二维码登录
   /**

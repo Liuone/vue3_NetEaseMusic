@@ -21,7 +21,7 @@
 import { ref, reactive, onBeforeMount } from 'vue'
 import Request_ from '@/request/index'
 // 导入组件
-import recommendMusic from '@/components/contant/recommendMusic'
+import recommendMusic from '@/components/recommend/recommendMusic.vue'
 
 export default {
   name: 'contantMain',
@@ -40,7 +40,7 @@ export default {
         type: 0 // 0:pc 1:android 2:iphone 3:ipad
       }).then(res => {
         console.log('轮播图获取结果返回>>>', res)
-        bannerData.push(...res)
+        bannerData.push(...res.banners)
       })
     }
     // 推荐歌单跳转状态

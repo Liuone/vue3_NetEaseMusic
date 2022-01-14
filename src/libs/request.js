@@ -13,9 +13,8 @@ export const axiosRequest = params => {
     console.log('请求到的初步结果>>>', res)
     // eslint-disable-next-line no-unused-vars
     const { code } = res.data = typeof res.data === 'string' ? JSON.parse(res.data) : res.data
-    console.log(code)
     if (code === 200) {
-      return Promise.resolve(res.data.banners)
+      return Promise.resolve(res.data)
     } else {
       return Promise.reject(res.data)
     }

@@ -8,10 +8,10 @@
     <el-dialog v-model="dialogFormVisible" title="登录" width="30%">
       <!--      账号-->
       邮箱:
-      <el-input v-model="login" placeholder="请输入邮箱"/>
+      <el-input v-model="login.emailLogin" placeholder="请输入邮箱"/>
       <!--      密码-->
       密码:
-      <el-input v-model="password" placeholder="请输入密码" show-password/>
+      <el-input v-model="login.password" placeholder="请输入密码" show-password/>
       <template #footer>
       <span class="dialog-footer">
         <el-button @click="cancelLogin">取消</el-button>
@@ -34,14 +34,19 @@
 </template>
 
 <script>
-import { ref, reactive, toRefs } from 'vue'
+import { reactive, toRefs } from 'vue'
 // 引入消息提示
 import { ElMessage } from 'element-plus'
+import Request_ from '@/request/index'
 export default {
   name: 'asideLeft',
   setup () {
     // 定义
-
+    // 登录
+    const login = reactive({
+      emailLogin: '',
+      password: ''
+    })
     const state = reactive({
       circleUrl: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png', // 头像地址
       dialogFormVisible: false // 登录框 默认关闭 点击的时候显示
@@ -59,15 +64,27 @@ export default {
       })
       console.log('取消登录')
     }
-    // 邮箱登录
+    // 登录确认
     const confirmLogin = () => {
       console.log('登录按钮')
+      return Request_.emailLogin({
+        email: login.emailLogin,
+        password: login.password
+      }).then(res => {
+        console.log('这是捕获到的正确信息>>>', res)
+        if (res.code === 200) {
+          ElMessage('登陆成功')
+          state.dialogFormVisible = false
+        }
+      }).catch(err => {
+        console.log('这是捕获到的错误>>>', err)
+        ElMessage.error(err.message)
+      })
     }
     // 返回
     return {
       // eslint-disable-next-line no-undef
-      login: ref(''),
-      password: ref(''),
+      login,
       ...toRefs(state),
       goToLogin,
       cancelLogin,
