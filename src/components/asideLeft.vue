@@ -65,16 +65,22 @@ export default {
       console.log('取消登录')
     }
     // 登录确认
-    const confirmLogin = () => {
+    const confirmLogin = async () => {
       console.log('登录按钮')
-      return Request_.emailLogin({
+      await Request_.emailLogin({
         email: login.emailLogin,
         password: login.password
       }).then(res => {
         console.log('这是捕获到的正确信息>>>', res)
         if (res.code === 200) {
-          ElMessage('登陆成功')
+          ElMessage({
+            message: '登陆成功',
+            type: 'success'
+          })
           state.dialogFormVisible = false
+          Request_.refresh().then(res => {
+            console.log('刷新登陆状态>>>', res)
+          })
         }
       }).catch(err => {
         console.log('这是捕获到的错误>>>', err)

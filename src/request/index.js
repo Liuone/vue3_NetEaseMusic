@@ -14,5 +14,10 @@ export default {
       url: API.emailLogin,
       data
     })
+  },
+  refresh () {
+    return Request_({
+      url: API.refresh
+    })
   }
 }

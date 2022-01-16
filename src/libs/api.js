@@ -23,6 +23,9 @@ export const API = {
    */
   qrcheck: `${process.env.VUE_APP_BASE_API_URL}/login/qr/login/qr/check`,
 
+  // 刷新登录
+  refresh: `${process.env.VUE_APP_BASE_API_URL}/login/refresh`,
+
   // 推荐歌单
   personalized: `${process.env.VUE_APP_BASE_API_URL}/personalized`,
 
