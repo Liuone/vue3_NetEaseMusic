@@ -42,6 +42,7 @@ export default {
   name: 'asideLeft',
   setup () {
     // 定义
+    // eslint-disable-next-line no-unused-vars
     // 登录
     const login = reactive({
       emailLogin: '',
@@ -67,29 +68,46 @@ export default {
     // 登录确认
     const confirmLogin = async () => {
       console.log('登录按钮')
-      await Request_.emailLogin({
-        email: login.emailLogin,
-        password: login.password
-      }).then(res => {
-        console.log('这是捕获到的正确信息>>>', res)
-        if (res.code === 200) {
-          ElMessage({
-            message: '登陆成功',
-            type: 'success'
-          })
-          state.dialogFormVisible = false
-          Request_.refresh().then(res => {
-            console.log('刷新登陆状态>>>', res)
-          })
-        }
-      }).catch(err => {
-        console.log('这是捕获到的错误>>>', err)
-        ElMessage.error(err.message)
-      })
+      if (!login.emailLogin) {
+        ElMessage({
+          message: '邮箱为空',
+          type: 'warning'
+        })
+        return
+      } else if (!login.password) {
+        ElMessage({
+          message: '密码为空',
+          type: 'warning'
+        })
+        return
+      }
+      try {
+        await Request_.emailLogin({
+          email: login.emailLogin,
+          password: login.password
+        }).then(res => {
+          console.log('这是捕获到的正确信息>>>', res)
+          if (res.code === 200) {
+            ElMessage({
+              message: '登陆成功',
+              type: 'success'
+            })
+            state.dialogFormVisible = false
+          }
+        })
+      } catch (err) {
+        console.log('错误信息>>>', err)
+      }
+      try {
+        await Request_.status().then(res => {
+          console.log('登陆状态>>>', res)
+        })
+      } catch (err) {
+        console.log('登录状态错误>>>', err)
+      }
     }
     // 返回
     return {
-      // eslint-disable-next-line no-undef
       login,
       ...toRefs(state),
       goToLogin,
