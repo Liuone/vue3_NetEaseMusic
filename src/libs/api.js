@@ -30,5 +30,8 @@ export const API = {
   personalized: `${process.env.VUE_APP_BASE_API_URL}/personalized`,
 
   // 轮播图
-  banner: `${process.env.VUE_APP_BASE_API_URL}/banner`
+  banner: `${process.env.VUE_APP_BASE_API_URL}/banner`,
+
+  // 登陆状态
+  status: `${process.env.VUE_APP_BASE_API_URL}/login/status`
 }
