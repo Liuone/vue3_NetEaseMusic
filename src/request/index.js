@@ -10,14 +10,24 @@ export default {
   },
   // 邮箱登录
   emailLogin (data) {
+    const timestamp = Date.parse(new Date())
     return Request_({
-      url: API.emailLogin,
+      url: API.emailLogin + '/?' + timestamp,
       data
     })
   },
+  // 刷新登录
   refresh () {
     return Request_({
+      method: 'GET',
       url: API.refresh
+    })
+  },
+  // 登陆状态
+  status () {
+    return Request_({
+      url: API.status,
+      method: 'GET'
     })
   }
 }
