@@ -3,7 +3,7 @@
     <!--  头像-->
     <el-avatar :size="50" :src="circleUrl"></el-avatar>
     <!--  登录-->
-    <span class="login-text" @click="goToLogin">还没有登录呦</span>
+    <span class="login-text" @click="goToLogin">{{defaultName}}</span>
     <!--    登录框-->
     <el-dialog v-model="dialogFormVisible" title="登录" width="30%">
       <!--      账号-->
@@ -42,6 +42,7 @@ export default {
   name: 'asideLeft',
   setup () {
     // 定义
+    let info = reactive({})
     // eslint-disable-next-line no-unused-vars
     // 登录
     const login = reactive({
@@ -49,6 +50,7 @@ export default {
       password: ''
     })
     const state = reactive({
+      defaultName: '还没有登录',
       circleUrl: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png', // 头像地址
       dialogFormVisible: false // 登录框 默认关闭 点击的时候显示
     })
@@ -92,22 +94,32 @@ export default {
               message: '登陆成功',
               type: 'success'
             })
+            info = res
             state.dialogFormVisible = false
           }
         })
       } catch (err) {
         console.log('错误信息>>>', err)
-      }
-      try {
-        await Request_.status().then(res => {
-          console.log('登陆状态>>>', res)
+        ElMessage({
+          message: err.message || err.msg,
+          type: 'error'
         })
-      } catch (err) {
-        console.log('登录状态错误>>>', err)
       }
+      if (info) {
+        state.circleUrl = info.profile.avatarUrl
+        state.defaultName = info.profile.nickname
+      }
+      // try {
+      //   await Request_.status().then(res => {
+      //     console.log('登陆状态>>>', res)
+      //   })
+      // } catch (err) {
+      //   console.log('登录状态错误>>>', err)
+      // }
     }
     // 返回
     return {
+      info,
       login,
       ...toRefs(state),
       goToLogin,
