@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Main from '@/views/Main'
-import recommenDation from '@/components/recommend/recommenDation.vue'
+import recommend from '@/pages/recommend.vue'
 const routes = [
   {
     path: '/',
@@ -9,12 +9,19 @@ const routes = [
     children: [
       // 个性推荐
       {
-        path: '/recommendation',
-        name: 'recommenDation',
+        path: '/recommend',
+        name: 'recommend',
         components: {
-          recommenDation
+          recommend
         }
       }
+      // {
+      //   path: '/recommendation',
+      //   name: 'recommenDation',
+      //   components: {
+      //     recommenDation
+      //   }
+      // }
     ]
   }
 ]

@@ -11,7 +11,7 @@
       </el-aside>
       <el-main>
 <!--        主体区域-->
-      <router-view name="recommenDation"></router-view>
+      <router-view name="recommend"></router-view>
       </el-main>
     </el-container>
 <!--    底部播放区域-->
@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import topHeader from '@/components/topHeader'
-import asideLeft from '@/components/asideLeft'
+import topHeader from '@/components/topHeader/topHeader'
+import asideLeft from '@/components/asideLeft/asideLeft'
 import footerBox from '@/components/footerBox'
 export default {
   name: 'Main',
