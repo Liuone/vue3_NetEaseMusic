@@ -33,5 +33,23 @@ export const API = {
   banner: `${process.env.VUE_APP_BASE_API_URL}/banner`,
 
   // 登陆状态
-  status: `${process.env.VUE_APP_BASE_API_URL}/login/status`
+  status: `${process.env.VUE_APP_BASE_API_URL}/login/status`,
+
+  /*
+  歌单
+   */
+  // 歌单分类
+  catlist: `${process.env.VUE_APP_BASE_API_URL}/playlist/catlist`,
+
+  // 热门歌单分类
+  hot: `${process.env.VUE_APP_BASE_API_URL}/playlist/hot`,
+
+  // 歌单 ( 网友精选碟 )
+  playlist: `${process.env.VUE_APP_BASE_API_URL}/top/playlist`,
+
+  // 精品歌单标签列表
+  tags: `${process.env.VUE_APP_BASE_API_URL}/playlist/highquality/tags`,
+
+  // 获取精品歌单
+  highquality: `${process.env.VUE_APP_BASE_API_URL}/top/playlist/highquality`
 }

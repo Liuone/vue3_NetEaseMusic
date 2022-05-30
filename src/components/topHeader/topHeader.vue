@@ -20,6 +20,11 @@ const topTitleClick = (item, index) => {
         path: '/recommend'
       })
       break
+    case '歌单':
+      router.push({
+        path: '/playList'
+      })
+      break
   }
 }
 // const recommendationClick = () => {

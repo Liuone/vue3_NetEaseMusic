@@ -12,6 +12,8 @@
       <el-main>
 <!--        主体区域-->
       <router-view name="recommend"></router-view>
+      <router-view name="playList"></router-view>
+      <router-view name="highQuality"></router-view>
       </el-main>
     </el-container>
 <!--    底部播放区域-->

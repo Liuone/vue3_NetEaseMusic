@@ -29,5 +29,21 @@ export default {
       url: API.status,
       method: 'GET'
     })
+  },
+  // 歌单
+  // 歌单分类
+  catlist () {
+    return Request_({
+      url: API.catlist,
+      method: 'GET'
+    })
+  },
+  // 精品歌单
+  highquality (data) {
+    return Request_({
+      url: API.highquality,
+      method: 'POST',
+      data
+    })
   }
 }
