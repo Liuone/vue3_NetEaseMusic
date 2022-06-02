@@ -7,8 +7,10 @@
         </el-carousel-item>
       </el-carousel>
     <!--    推荐歌单模块-->
-    <div class="recommend" @click="clickRecommendStatus">
+    <div class="recommend">
+      <router-link :to="{ name: 'playList' }">
       <h3 >推荐歌单</h3>
+      </router-link>
     </div>
   </div>
 <!--  推荐歌单-->
@@ -18,7 +20,7 @@
 </template>
 
 <script>
-import { ref, reactive, onBeforeMount } from 'vue'
+import { reactive, onBeforeMount } from 'vue'
 import Request_ from '@/request/index'
 // 导入组件
 import recommendMusic from '@/components/recommend/recommendMusic.vue'
@@ -43,22 +45,10 @@ export default {
         bannerData.push(...res.banners)
       })
     }
-    // 推荐歌单跳转状态
-    const clickRecommend = ref(true)
-    const clickRecommendStatus = () => {
-      clickRecommend.value = false
-      console.log(clickRecommend)
-    }
-    const handle = (value) => {
-      clickRecommend.value = value
-    }
     // 返回
     return {
       bannerData,
-      banner,
-      clickRecommend,
-      clickRecommendStatus,
-      handle
+      banner
     }
   }
 }

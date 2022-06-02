@@ -3,6 +3,7 @@ import Main from '@/views/Main'
 import recommend from '@/pages/recommend.vue'
 import playList from '@/pages/playList/playList.vue'
 import highQuality from '@/pages/playList/highQuality.vue'
+import highQualityDetail from '@/pages/playList/highQualityDetail.vue'
 const routes = [
   {
     path: '/',
@@ -27,10 +28,17 @@ const routes = [
       },
       // 精品歌单
       {
-        path: '/playList/highQuality',
+        path: '/playList/highQuality/',
         name: 'highQuality',
         components: {
           highQuality
+        }
+      },
+      {
+        path: '/playList/highQuality/detail',
+        name: 'highQualityDetail',
+        components: {
+          highQualityDetail
         }
       }
       // {

@@ -1,12 +1,15 @@
 <template>
-  <div class="left"></div>
+  <div class="top-header-flex">
+    <leftButton></leftButton>
   <div class="contant-text">
     <span v-for="( item, index) in topTitle" :key="index" @click="topTitleClick(item, index)" :class="selectedTitle === index ? 'span-selected' : ''">{{item}}</span>
   </div>
   <div class="search"></div>
+  </div>
 </template>
 
 <script setup>
+import leftButton from '@/components/topHeader/topHeaderLeftButton.vue'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 const topTitle = ['个性推荐', '歌单', '主播电台', '排行榜', '歌手', '最新音乐']
@@ -35,13 +38,20 @@ const topTitleClick = (item, index) => {
 </script>
 
 <style lang="scss" scoped>
-.contant-text {
-  color: #646464;
-  span:hover {
-    color: #000;
-    font-weight: bold;
+  .top-header-flex {
+    display: flex;
+    .contant-text {
+      flex: 2;
+      color: #646464;
+      span:hover {
+        color: #000;
+        font-weight: bold;
+      }
+    }
+    .search {
+      flex: 1;
+    }
   }
-}
 span {
   color: #000;
   margin-right: 10px;

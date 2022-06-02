@@ -1,9 +1,10 @@
 <template>
-  <!--  推荐歌单-->
-  <h1 >111</h1>
+    精品歌单详情
 </template>
+
 <script setup>
 </script>
 
 <style lang="scss" scoped>
+
 </style>

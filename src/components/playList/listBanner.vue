@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{name: 'highQuality'}">
+  <router-link :to="{name: 'highQuality', params: {highData: JSON.stringify(highData)}}">
     <div class="banner" :style="{backgroundImage: 'url(' + coverImg + ' )'}" @click="goToHighQuality">
       <div class="mask"></div>
       <img :src=coverImg alt="" class="banner-cover">
@@ -28,9 +28,6 @@ const getHighquality = () => {
     console.log('err', err)
   })
 }
-// const goToHighQuality = () => {
-//   console.log('3333')
-// }
 </script>
 
 <style lang="scss" scoped>
